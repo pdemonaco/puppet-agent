@@ -68,10 +68,16 @@ component "libwhereami" do |pkg, settings, platform|
 
   # Make test will explode horribly in a cross-compile situation
   # Tests will be skipped on AIX until they are expected to pass
-  if platform.is_cross_compiled? || platform.is_aix?
+  if platform.is_cross_compiled? || platform.is_aix? 
     test = "/bin/true"
   else
     test = "#{make} test ARGS=-V"
+  end
+
+  # No idea why there are so many duplicate if statements that arent nested
+  # This ensures that non-cross compiled el-7-ppc64 builds skip tests
+  if platform.is_cross_compiled? || platform.name =~ /el-7-(aarch64|ppc64)/
+    test = "/bin/true"
   end
 
   pkg.build do

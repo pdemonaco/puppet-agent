@@ -1,5 +1,5 @@
 component 'dmidecode' do |pkg, settings, platform|
-  if platform.name == 'el-7-aarch64'
+  if platform.name =~ /el-7-(aarch64|ppc64)/
     pkg.version '3.1'
     pkg.md5sum '7798f68a02b82358c44af913da3b6b42'
   else
