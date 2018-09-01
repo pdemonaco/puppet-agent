@@ -35,7 +35,7 @@ project "facter-gem" do |proj|
       proj.setting(:ruby_binary, 'cmd /c "C:\ProgramFilesFolder\PuppetLabs\Puppet\sys\ruby\bin\ruby.exe"')
       proj.setting(:gcc_bindir, "C:/tools/mingw32/bin")
     end
-    proj.setting(:artifactory_url, "http://nagios.ardencompanies.com/nconf/puppet-build")
+    proj.setting(:artifactory_url, "https://artifactory.delivery.puppetlabs.net/artifactory")
     proj.setting(:buildsources_url, "#{proj.artifactory_url}/generic/buildsources")
     proj.setting(:build_tools_dir, '/cygdrive/c/tools/pl-build-tools/bin')
     proj.setting(:ruby_bindir, File.join(proj.ruby_dir, 'bin'))
